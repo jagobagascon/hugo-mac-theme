@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Data.MAC.settings.language }}">
+<head>
+    {{ partial "head.html" }}
+
+    {{ partial "head_custom.html" }}
+</head>
+<body>
+    {{ partial "header.html" }}
+
+    {{ range .Site.Params.sections }}
+    {{ partial . $ }}
+    {{ end }}
+
+    {{ partial "footer.html" }}
+</body>
+</html>
