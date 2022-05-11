@@ -9,6 +9,7 @@ homepage = "https://github.com/jagobagascon/hugo-mac-theme/"
 tags = []
 features = []
 min_version = "0.41.0"
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [author]
   name = "Jagoba Gascón Sánchez"

@@ -1,0 +1,37 @@
+/* Bulma overrides */
+$primary: #fde1e2;
+
+$text: var(--color-text);
+$text-strong: var(--color-text--strong);
+$text-light: var(--color-text--light);
+
+$navbar-box-shadow-size: 0px 0px .5rem 0px;
+$navbar-box-shadow-color: rgba(0, 0, 0, .1);
+
+/* CSS vars */
+:root {
+    --color-twitter: #55acee;
+    --color-github: #24292e;
+    --color-linkedin: #0077B5;
+
+    --color-bg: linear-gradient(115.29deg, var(--color-primary--light) 1.33%, var(--color-primary) 98.21%), var(--color-primary);
+}
+
+/* Light theme */
+:root {
+    --color-text: hsla(213, 23%, 35%, 1);
+    --color-text--strong: hsla(213, 23%, 25%, 1);
+    --color-text--light: hsla(213, 23%, 45%, 1);
+    --color-primary: #FFCADA;
+    --color-primary--light: #FFF2E7;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text: #eee;
+        --color-text--strong: #eee;
+        --color-text--light: #eee;
+        --color-primary: #003941;
+        --color-primary--light: #00645b;
+    }
+}

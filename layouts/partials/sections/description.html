@@ -1,0 +1,6 @@
+<h1 class="title">A bit about myself</h1>
+<div class="card">
+    <div class="card-content">
+        {{ replace .Site.Data.MAC.aboutMe.profile.description "\n" "<br/>" | safeHTML }}
+    </div>
+</div>

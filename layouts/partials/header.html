@@ -1,0 +1,68 @@
+<nav class="navbar is-fixed-top is-primary" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <span class="navbar-item">
+                <span class="has-text-weight-light">{{ .Site.Data.MAC.aboutMe.profile.name }}</span>
+                &nbsp;
+                <span class="has-text-weight-semibold">{{ .Site.Data.MAC.aboutMe.profile.surnames }}</span>
+            </span>
+            
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-mac">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        
+        <div id="navbar-mac" class="navbar-menu">
+            <div class="navbar-start">
+                {{ if not (in .Site.Params.disableSections "about-me") }}
+                <a class="navbar-item" href="#section-about-me">About Me</a>
+                {{ end }}
+                {{ if not (in .Site.Params.disableSections "experience") }}
+                <a class="navbar-item" href="#section-experience">Experience</a>
+                {{ end }}
+                {{ if not (in .Site.Params.disableSections "education") }}
+                <a class="navbar-item" href="#section-education">Education</a>
+                {{ end }}
+                {{ if not (in .Site.Params.disableSections "links-of-interest") }}
+                <a class="navbar-item" href="#section-links-of-interest">Links of interest</a>
+                {{ end }}
+            </div>
+            
+            <div class="navbar-end">
+                <span class="navbar-item has-text-primary-dark is-italic has-text-weight-light">Find me in</span>
+                {{ range .Site.Data.MAC.aboutMe.relevantLinks -}}
+                    <a class="navbar-item" href="{{.URL}}" target="_blank">
+                        <span class="icon" style="color: var(--color-{{.type}});">
+                            <i class="mdi mdi-24px mdi-{{.type}}"></i>
+                        </span>
+                    </a>
+                {{- end }}
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        
+        // Add a click event on each of them
+        $navbarBurgers.forEach( el => {
+            el.addEventListener('click', () => {
+                
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+                
+            });
+        });
+        
+    });
+</script>
