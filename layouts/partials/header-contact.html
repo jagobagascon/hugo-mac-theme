@@ -1,0 +1,9 @@
+{{ $classes := .itemClases}}
+<span class="navbar-item {{ $classes }} has-text-primary-dark is-italic has-text-weight-light">Find me in</span>
+{{ range .context.Site.Data.MAC.aboutMe.relevantLinks -}}
+    <a class="navbar-item {{ $classes }}" href="{{.URL}}" target="_blank">
+        <span class="icon" style="color: var(--color-{{.type}});">
+            <i class="mdi mdi-24px mdi-{{.type}}"></i>
+        </span>
+    </a>
+{{- end }}

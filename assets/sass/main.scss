@@ -39,6 +39,12 @@ html {
     background: var(--color-bg);
     background-attachment: fixed;
     background-size: 100% 100%;
+
+    .contact-button {
+        &:hover, &:active {
+            background-color: bulmaDarken($primary, 5%);
+        }
+    }
 }
 
 // fix card-image radius. We are not using an img, but a background-image
