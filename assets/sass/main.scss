@@ -19,10 +19,20 @@ html {
     }
 }
 
+// displace anchors by the navbar height so that the navbar links
+// do not scroll past the navbar
 .fixed-top-anchor {
     position: relative;
     display: block;
     top: -$navbar-height;
+}
+
+// media-content has an overflow-x: auto that is adding
+// scrolls in mobile. We don't need it.
+@media screen and (max-width: 768px) {
+    .media-content {
+        overflow-x: unset;
+    }
 }
 
 .navbar {
@@ -31,7 +41,8 @@ html {
     background-size: 100% 100%;
 }
 
-// fix card-image
+// fix card-image radius. We are not using an img, but a background-image
+// to fine tune the image position and scale.
 .card-image {
     display: block;
     position: relative;
