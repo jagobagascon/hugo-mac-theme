@@ -1,5 +1,6 @@
 @import url('https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css');
 
+@import 'bulma/sass/utilities/initial-variables.sass'; // initialize variables to override them
 @import 'vars';
 @import 'bulma/bulma.sass';
 
@@ -9,7 +10,6 @@ html {
     background-attachment: fixed;
     background-size: 100% 100%;
 }
-
 
 // add transparent navbar
 .navbar, .footer {
@@ -29,7 +29,7 @@ html {
 
 // media-content has an overflow-x: auto that is adding
 // scrolls in mobile. We don't need it.
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $tablet) {
     .media-content {
         overflow-x: unset;
     }
