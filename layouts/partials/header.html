@@ -7,7 +7,7 @@
                 <span class="has-text-weight-semibold is-hidden-mobile">{{ .Site.Data.MAC.aboutMe.profile.surnames }}</span>
             </span>
             
-            {{ partial "header-contact.html" (dict "context" $ "itemClases" "is-hidden-tablet-only is-hidden-desktop-only is-hidden-widescreen-only") }}
+            {{ partial "header-contact.html" (dict "context" $ "itemClases" "is-hidden-desktop-only is-hidden-widescreen-only") }}
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-mac">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -32,7 +32,7 @@
             </div>
             
             <div class="navbar-end">
-                {{ partial "header-contact.html" (dict "context" $ "itemClases" "is-hidden-mobile") }}
+                {{ partial "header-contact.html" (dict "context" $ "itemClases" "is-hidden-tablet-only is-hidden-mobile") }}
             </div>
         </div>
     </div>
