@@ -18,23 +18,10 @@ $navbar-box-shadow-color: rgba(0, 0, 0, .1);
     --color-linkedin: #0077B5;
 
     --color-bg: linear-gradient(115.29deg, var(--color-primary--light) 1.33%, var(--color-primary) 98.21%), var(--color-primary);
-}
 
-/* Light theme */
-:root {
-    --color-text: hsla(213, 23%, 35%, 1);
-    --color-text--strong: hsla(213, 23%, 25%, 1);
-    --color-text--light: hsla(213, 23%, 45%, 1);
-    --color-primary: #FFCADA;
-    --color-primary--light: #FFF2E7;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-text: #eee;
-        --color-text--strong: #eee;
-        --color-text--light: #eee;
-        --color-primary: #003941;
-        --color-primary--light: #00645b;
-    }
+    --color-text: hsl(213, 23%, 35%);
+    --color-text--strong: hsl(213, 23%, 25%);
+    --color-text--light: hsl(213, 23%, 45%);
+    --color-primary: hsl(342, 100%, 90%);
+    --color-primary--light: hsl(27, 100%, 95%);
 }
