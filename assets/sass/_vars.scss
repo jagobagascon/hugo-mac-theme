@@ -5,6 +5,9 @@ $text: var(--color-text);
 $text-strong: var(--color-text--strong);
 $text-light: var(--color-text--light);
 
+$radius-large: 1.5em;
+$card-radius: $radius-large;
+
 $navbar-box-shadow-size: 0px 0px .5rem 0px;
 $navbar-box-shadow-color: rgba(0, 0, 0, .1);
 
