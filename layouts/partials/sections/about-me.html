@@ -25,11 +25,11 @@
         <div class="media">
             <div class="media-content">
                 <div class="title is-6">
-                    Languages
+                    Technologies and tools
                 </div>
                 <div class="tags">
-                    {{ range .Site.Data.MAC.knowledge.languages }}
-                    <div class="tag is-rounded is-primary">{{.name}}</div>
+                    {{ range .Site.Data.MAC.knowledge.hardSkills }}
+                    <div class="tag is-rounded is-primary">{{.skill.name}}</div>
                     {{ end }}
                 </div>
             </div>
@@ -37,11 +37,11 @@
         <div class="media">
             <div class="media-content">
                 <div class="title is-6">
-                    Technologies and tools
+                    Languages
                 </div>
                 <div class="tags">
-                    {{ range .Site.Data.MAC.knowledge.hardSkills }}
-                    <div class="tag is-rounded is-primary">{{.skill.name}}</div>
+                    {{ range .Site.Data.MAC.knowledge.languages }}
+                    <div class="tag is-rounded is-primary">{{.name}}</div>
                     {{ end }}
                 </div>
             </div>
