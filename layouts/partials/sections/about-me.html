@@ -1,50 +1,40 @@
-<h1 class="title is-hidden-mobile">
-    &nbsp;
-    <!-- lazy way to add a bit of space on top-->
-</h1>
-<div class="card">
-    <div class="card-image">
-        <figure class="image is-1by1" style='
-            background-image: url("{{ hugo.Data.MAC.aboutMe.profile.avatar.link }}");
-            background-size: cover;
-            background-position: center center;'>
-        </figure>
+<div class="profile-card">
+    <div class="profile-photo-wrap">
+        <img class="profile-photo" src="{{ hugo.Data.MAC.aboutMe.profile.avatar.link }}" alt="{{ hugo.Data.MAC.aboutMe.profile.avatar.alt }}" loading="eager">
     </div>
-    <div class="card-content">
-        <div class="media">
-            <div class="media-content">
-                <div class="title is-4">
-                    <span class="has-text-weight-light">{{ hugo.Data.MAC.aboutMe.profile.name }}</span>
-                    <span class="has-text-weight-semibold">{{ hugo.Data.MAC.aboutMe.profile.surnames }}</span>
-                </div>
-                <p class="subtitle is-5">
-                    {{ hugo.Data.MAC.aboutMe.profile.title }}
-                </p>
-            </div>
+    <div class="profile-intro">
+        <p class="eyebrow">Software · Systems · Problem solving</p>
+        <h1>{{ hugo.Data.MAC.aboutMe.profile.name }}<br>{{ hugo.Data.MAC.aboutMe.profile.surnames }}</h1>
+        <p class="profile-title">{{ hugo.Data.MAC.aboutMe.profile.title }}</p>
+        {{ if eq hugo.Data.MAC.careerPreferences.status "openToOffers" }}
+        <p class="availability"><span class="profile-status" aria-hidden="true"></span>Open to offers</p>
+        {{ end }}
+        {{ with hugo.Data.MAC.aboutMe.profile.location }}
+        <p class="profile-location"><span class="ui-icon" aria-hidden="true"><i class="mdi mdi-map-marker-outline"></i></span>{{ .region }}, {{ .country }}</p>
+        {{ end }}
+    </div>
+    <div class="profile-socials" aria-label="Social profiles">
+        {{ range hugo.Data.MAC.aboutMe.relevantLinks -}}
+        <a class="social-link" href="{{ .URL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .type | title }} (opens in a new tab)">
+            <span class="ui-icon"><i class="mdi mdi-{{ .type }}" aria-hidden="true"></i></span>
+            <span>{{ .type | title }}</span>
+        </a>
+        {{- end }}
+    </div>
+    <div class="profile-group">
+        <h2 class="profile-label">Core technologies</h2>
+        <div class="skill-list">
+            {{ range hugo.Data.MAC.knowledge.hardSkills }}
+            <span class="skill-chip">{{ .skill.name }}</span>
+            {{ end }}
         </div>
-        <div class="media">
-            <div class="media-content">
-                <div class="title is-6">
-                    Technologies and tools
-                </div>
-                <div class="tags">
-                    {{ range hugo.Data.MAC.knowledge.hardSkills }}
-                    <div class="tag is-rounded is-primary">{{.skill.name}}</div>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
-        <div class="media">
-            <div class="media-content">
-                <div class="title is-6">
-                    Languages
-                </div>
-                <div class="tags">
-                    {{ range hugo.Data.MAC.knowledge.languages }}
-                    <div class="tag is-rounded is-primary">{{.name}}</div>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
+    </div>
+    <div class="profile-group profile-languages">
+        <h2 class="profile-label">Languages</h2>
+        <ul>
+            {{ range hugo.Data.MAC.knowledge.languages }}
+            <li><span>{{ .fullName }}</span><small>{{ .level }}</small></li>
+            {{ end }}
+        </ul>
     </div>
 </div>

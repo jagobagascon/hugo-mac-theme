@@ -1,0 +1,75 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    background: var(--color-bg);
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    color: var(--color-text);
+    background:
+        radial-gradient(ellipse at 7% 0%, rgba(224, 233, 223, .74), transparent 34rem),
+        var(--color-bg);
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 1rem;
+    line-height: 1.68;
+    -webkit-font-smoothing: antialiased;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, p, ul {
+    margin-top: 0;
+}
+
+a {
+    color: var(--color-accent-dark);
+    text-decoration: none;
+    transition: color .18s ease, background-color .18s ease, transform .18s ease;
+}
+
+a:hover {
+    color: var(--color-warm);
+}
+
+.site-container {
+    width: 100%;
+    max-width: 1120px;
+    margin-inline: auto;
+}
+
+.ui-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.rich-text {
+    overflow-wrap: anywhere;
+}
+
+.rich-text p {
+    margin-bottom: .75rem;
+}
+
+.rich-text p:last-child {
+    margin-bottom: 0;
+}
+
+.rich-text ul {
+    margin: .4rem 0 .7rem;
+    padding-left: 1.25rem;
+    list-style: disc;
+}
+
+.rich-text li::marker {
+    color: #7c9a7e;
+}
+
+.rich-text li + li {
+    margin-top: .25rem;
+}

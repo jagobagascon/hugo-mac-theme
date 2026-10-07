@@ -1,39 +1,14 @@
-<h1 class="title">Education</h1>
-<div class="box">
+<p class="eyebrow">Background</p>
+<h2 class="section-title" id="section-education">Education</h2>
+<div class="education-list">
     {{ range hugo.Data.MAC.knowledge.studies }}
-    <div class="media">
-        <div class="media-left">
-            <a href="{{ .institution.URL }}" target="_blank">
-                <figure class="image is-3by2" style='
-                        background-image: url("{{ .institution.image.link }}");
-                        background-size: contain;
-                        background-repeat: no-repeat;
-                        background-position: left top;
-                        width: 10rem;'>
-                </figure>
-            </a>
+    <article class="education-item">
+        <span class="education-icon" aria-hidden="true"><i class="mdi mdi-school-outline"></i></span>
+        <div>
+            <h3>{{ .name }}</h3>
+            <a class="organization-link" href="{{ .institution.URL }}" target="_blank" rel="noopener noreferrer">{{ .institution.name }} <span class="ui-icon" aria-hidden="true"><i class="mdi mdi-arrow-top-right"></i></span></a>
+            <p class="date-range"><time datetime="{{ .startDate }}">{{ time.Format "Jan 2006" .startDate }}</time><span aria-hidden="true">—</span>{{ if .finishDate }}<time datetime="{{ .finishDate }}">{{ time.Format "Jan 2006" .finishDate }}</time>{{ else }}<span>Present</span>{{ end }}</p>
         </div>
-        <div class="media-content">
-            <div class="content">
-                <div class="title is-6">
-                    <strong>{{ .name }}</strong>
-                </div>
-                <div class="subtitle is-6">
-                    <a href="{{ .institution.URL }}" target="_blank">{{ .institution.name }}</a>
-                    -
-                    <small>
-                        {{ .startDate }} -
-                        {{ if not .finishDate }}
-                        Present
-                        {{else}}
-                        {{.finishDate}}
-                        {{end}}
-                    </small>
-                </div>
-            </div>
-            <div class="content">
-            </div>
-        </div>
-    </div>
+    </article>
     {{ end }}
 </div>

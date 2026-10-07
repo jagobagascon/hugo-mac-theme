@@ -1,67 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@300;400;600&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css');
-
-@import 'bulma/sass/utilities/initial-variables.sass';
-@import 'vars';
-@import 'bulma/bulma.sass';
-
-html {
-    background: var(--color-bg);
-    background-attachment: fixed;
-    background-size: 100% 100%;
-}
-
-// add transparent navbar
-.navbar, .footer {
-    &.is-transparent {
-        background-color: transparent;
-        background-image: none;
-    }
-}
-
-// displace anchors by the navbar height so that the navbar links
-// do not scroll past the navbar
-.fixed-top-anchor {
-    position: relative;
-    display: block;
-    top: -$navbar-height;
-}
-
-// media-content has an overflow-x: auto that is adding
-// scrolls in mobile. We don't need it.
-@media screen and (max-width: $tablet) {
-    .media-content {
-        overflow-x: unset;
-    }
-}
-
-.navbar {
-    background: var(--color-bg);
-    background-attachment: fixed;
-    background-size: 100% 100%;
-
-    .contact-button {
-        &:hover, &:active {
-            background-color: bulmaDarken($primary, 5%);
-        }
-    }
-}
-
-// fix card-image radius. We are not using an img, but a background-image
-// to fine tune the image position and scale.
-.card-image {
-    display: block;
-    position: relative;
-    &:first-child {
-        figure {
-            border-top-left-radius: $card-radius;
-            border-top-right-radius: $card-radius;
-        }
-    }
-    &:last-child{
-        figure{
-            border-bottom-left-radius: $card-radius;
-            border-bottom-right-radius: $card-radius;
-        }
-    }
-}
+@use 'partials/tokens';
+@use 'partials/base';
+@use 'partials/navigation';
+@use 'partials/layout';
+@use 'partials/profile';
+@use 'partials/sections';
+@use 'partials/responsive';

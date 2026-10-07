@@ -1,53 +1,43 @@
 <!DOCTYPE html>
-<html class="has-navbar-fixed-top" lang="{{ hugo.Data.MAC.settings.language }}">
+<html lang="{{ hugo.Data.MAC.settings.language }}">
 
 <head>
     {{ partial "head.html" . }}
-
     {{ partial "head_custom.html" . }}
 </head>
 
-<body>
+<body id="top">
     {{ partial "header.html" . }}
 
-    <div class="section">
-        <div class="container">
-            <div class="tile is-ancestor">
-                <div class="tile is-parent is-3">
-                    <div class="tile is-child">
-                        {{ partial "sections/about-me.html" . }}
-                    </div>
-                </div>
-                <div class="tile is-parent is-9 is-vertical">
-                    <div class="tile is-child ">
-                        {{ if not (in .Site.Params.disableSections "description") }}
-                        <a class="fixed-top-anchor" id="section-about-me"></a>
-                        {{ partial "sections/description.html" . }}
-                        {{ end }}
-                    </div>
-                    <div class="tile is-child ">
-                        {{ if not (in .Site.Params.disableSections "experience") }}
-                        <a class="fixed-top-anchor" id="section-experience"></a>
-                        {{ partial "sections/experience.html" . }}
-                        {{ end }}
-                    </div>
-                    <div class="tile is-child ">
-                        {{ if not (in .Site.Params.disableSections "education") }}
-                        <a class="fixed-top-anchor" id="section-education"></a>
-                        {{ partial "sections/education.html" . }}
-                        {{ end }}
-                    </div>
-                    <div class="tile is-child ">
-                        {{ if not (in .Site.Params.disableSections "links-of-interest") }}
-                        <a class="fixed-top-anchor" id="section-links-of-interest"></a>
-                        {{ partial "sections/links-of-interest.html" . }}
-                        {{ end }}
-                    </div>
-                </div>
+    <main class="page-shell">
+        <div class="site-container cv-layout">
+            <aside class="profile-column" aria-label="Profile">
+                {{ partial "sections/about-me.html" . }}
+            </aside>
+            <div class="cv-content">
+                {{ if not (in .Site.Params.disableSections "description") }}
+                <section class="cv-section intro-section" aria-labelledby="section-about-me">
+                    {{ partial "sections/description.html" . }}
+                </section>
+                {{ end }}
+                {{ if not (in .Site.Params.disableSections "experience") }}
+                <section class="cv-section" aria-labelledby="section-experience">
+                    {{ partial "sections/experience.html" . }}
+                </section>
+                {{ end }}
+                {{ if not (in .Site.Params.disableSections "education") }}
+                <section class="cv-section" aria-labelledby="section-education">
+                    {{ partial "sections/education.html" . }}
+                </section>
+                {{ end }}
+                {{ if not (in .Site.Params.disableSections "links-of-interest") }}
+                <section class="cv-section" aria-labelledby="section-links-of-interest">
+                    {{ partial "sections/links-of-interest.html" . }}
+                </section>
+                {{ end }}
             </div>
         </div>
-    </div>
-    {{ partial "footer.html" . }}
+    </main>
 </body>
 
 </html>

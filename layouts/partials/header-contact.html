@@ -1,9 +1,5 @@
-{{ $classes := .itemClases}}
-<span class="navbar-item {{ $classes }} has-text-primary-dark is-italic has-text-weight-light">Find me in</span>
 {{ range hugo.Data.MAC.aboutMe.relevantLinks -}}
-<a class="navbar-item {{ $classes }}" href="{{.URL}}" target="_blank">
-    <span class="icon" style="color: var(--color-{{.type}});">
-        <i class="mdi mdi-24px mdi-{{.type}}"></i>
-    </span>
+<a class="site-nav-link nav-social" href="{{ .URL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .type | title }} (opens in a new tab)">
+    <span class="ui-icon"><i class="mdi mdi-{{ .type }}" aria-hidden="true"></i></span>
 </a>
 {{- end }}

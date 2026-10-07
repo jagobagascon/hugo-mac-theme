@@ -1,6 +1,5 @@
-<h1 class="title">A bit about myself</h1>
-<div class="card">
-    <div class="card-content">
-        {{ replace hugo.Data.MAC.aboutMe.profile.description "\n" "<br />" | safeHTML }}
-    </div>
+<p class="eyebrow">Profile</p>
+<h2 class="section-title" id="section-about-me">A bit about myself</h2>
+<div class="intro-copy rich-text">
+    {{ hugo.Data.MAC.aboutMe.profile.description | markdownify }}
 </div>
