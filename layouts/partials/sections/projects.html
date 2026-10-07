@@ -1,0 +1,35 @@
+<p class="eyebrow">Selected work</p>
+<h2 class="section-title" id="section-projects">Projects</h2>
+<div class="project-list">
+{{ range . }}
+{{ $project := . }}
+{{ $hasImage := false }}
+{{ with .details.image.link }}{{ $hasImage = true }}{{ end }}
+<article class="project-card{{ if not $hasImage }} project-card-no-image{{ end }}">
+    {{ if $hasImage }}
+        {{ if $project.details.URL }}<a class="project-image-link" href="{{ $project.details.URL }}" target="_blank" rel="noopener noreferrer" aria-label="View {{ $project.details.name }} project">{{ end }}
+            <img src="{{ $project.details.image.link }}" alt="{{ $project.details.name }} project image" loading="lazy">
+        {{ if $project.details.URL }}</a>{{ end }}
+    {{ end }}
+    <div class="project-copy">
+        <div class="project-heading">
+            <h3>{{ .details.name }}</h3>
+            {{ with index .roles 0 }}
+            {{ if or .startDate .finishDate }}
+            <p class="date-range">
+                {{ with .startDate }}<time datetime="{{ . }}">{{ time.Format "Jan 2006" . }}</time>{{ end }}
+                {{ if and .startDate .finishDate }}<span aria-hidden="true">—</span>{{ end }}
+                {{ with .finishDate }}<time datetime="{{ . }}">{{ time.Format "Jan 2006" . }}</time>{{ end }}
+            </p>
+            {{ end }}
+            {{ end }}
+        </div>
+        {{ with .details.description }}<div class="project-description rich-text">{{ . | markdownify }}</div>{{ end }}
+        {{ with index .roles 0 }}
+        {{ with .competences }}<div class="experience-tags">{{ range . }}<span>{{ .name }}</span>{{ end }}</div>{{ end }}
+        {{ end }}
+        {{ with .details.URL }}<a class="project-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">View project <span aria-hidden="true">↗</span></a>{{ end }}
+    </div>
+</article>
+{{ end }}
+</div>

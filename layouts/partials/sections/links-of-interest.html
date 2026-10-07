@@ -1,11 +1,11 @@
 <p class="eyebrow">Around the web</p>
 <h2 class="section-title" id="section-links-of-interest">Selected links</h2>
 <div class="interest-list">
-    {{ range hugo.Data.MAC.aboutMe.recommendations }}
+    {{ range . }}
     <a class="interest-link" href="{{ .URL }}" target="_blank" rel="noopener noreferrer">
         <span class="interest-icon" aria-hidden="true"><i class="mdi mdi-open-in-new"></i></span>
         <span><strong>{{ .title }}</strong><small>{{ .summary }}</small></span>
-        <span class="ui-icon interest-arrow" aria-hidden="true"><i class="mdi mdi-arrow-top-right"></i></span>
+        <span class="interest-arrow" aria-hidden="true">↗</span>
     </a>
     {{ end }}
 </div>

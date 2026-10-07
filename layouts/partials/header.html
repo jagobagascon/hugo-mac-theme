@@ -1,3 +1,5 @@
+{{ $publicArtifacts := hugo.Data.MAC.experience.publicArtifacts }}
+
 <nav class="site-navbar" role="navigation" aria-label="Main navigation">
     <div class="site-container">
         <div class="site-navbar-brand">
@@ -21,11 +23,21 @@
                 {{ if not (in .Site.Params.disableSections "experience") }}
                 <a class="site-nav-link" href="#section-experience">Experience</a>
                 {{ end }}
+                {{ with hugo.Data.MAC.experience.projects }}
+                {{ if not (in $.Site.Params.disableSections "projects") }}
+                <a class="site-nav-link" href="#section-projects">Projects</a>
+                {{ end }}
+                {{ end }}
                 {{ if not (in .Site.Params.disableSections "education") }}
                 <a class="site-nav-link" href="#section-education">Education</a>
                 {{ end }}
-                {{ if not (in .Site.Params.disableSections "links-of-interest") }}
+                {{ if and (gt (len $publicArtifacts) 0) (not (in .Site.Params.disableSections "contributions")) }}
+                <a class="site-nav-link" href="#section-contributions">Contributions</a>
+                {{ end }}
+                {{ with hugo.Data.MAC.aboutMe.recommendations }}
+                {{ if not (in $.Site.Params.disableSections "links-of-interest") }}
                 <a class="site-nav-link" href="#section-links-of-interest">Elsewhere</a>
+                {{ end }}
                 {{ end }}
             </div>
         </div>

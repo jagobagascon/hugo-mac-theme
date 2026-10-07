@@ -25,15 +25,30 @@
                     {{ partial "sections/experience.html" . }}
                 </section>
                 {{ end }}
+                {{ with hugo.Data.MAC.experience.projects }}
+                {{ if not (in $.Site.Params.disableSections "projects") }}
+                <section class="cv-section" aria-labelledby="section-projects">
+                    {{ partial "sections/projects.html" . }}
+                </section>
+                {{ end }}
+                {{ end }}
                 {{ if not (in .Site.Params.disableSections "education") }}
                 <section class="cv-section" aria-labelledby="section-education">
                     {{ partial "sections/education.html" . }}
                 </section>
                 {{ end }}
-                {{ if not (in .Site.Params.disableSections "links-of-interest") }}
+                {{ $publicArtifacts := hugo.Data.MAC.experience.publicArtifacts }}
+                {{ if and (gt (len $publicArtifacts) 0) (not (in .Site.Params.disableSections "contributions")) }}
+                <section class="cv-section" aria-labelledby="section-contributions">
+                    {{ partial "sections/contributions.html" $publicArtifacts }}
+                </section>
+                {{ end }}
+                {{ with hugo.Data.MAC.aboutMe.recommendations }}
+                {{ if not (in $.Site.Params.disableSections "links-of-interest") }}
                 <section class="cv-section" aria-labelledby="section-links-of-interest">
                     {{ partial "sections/links-of-interest.html" . }}
                 </section>
+                {{ end }}
                 {{ end }}
             </div>
         </div>

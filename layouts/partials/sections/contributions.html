@@ -1,0 +1,17 @@
+<p class="eyebrow">Public work</p>
+<h2 class="section-title" id="section-contributions">Selected contributions</h2>
+<div class="contribution-list">
+    {{ range . }}
+    <article class="contribution-card">
+        <div class="contribution-heading">
+            <h3>{{ .details.name }}</h3>
+            {{ with .details.description }}<p>{{ . | plainify | htmlUnescape | truncate 160 }}</p>{{ end }}
+        </div>
+        <div class="contribution-meta">
+            {{ with .publishingDate }}<time datetime="{{ . }}">{{ time.Format "Jan 2006" . }}</time>{{ end }}
+            {{ range .relatedCompetences }}<span>{{ .name }}</span>{{ end }}
+        </div>
+        {{ with .details.URL }}<a class="contribution-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">View contribution <span aria-hidden="true">↗</span></a>{{ end }}
+    </article>
+    {{ end }}
+</div>
