@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html class="has-navbar-fixed-top" lang="{{ .Site.Data.MAC.settings.language }}">
+<html class="has-navbar-fixed-top" lang="{{ hugo.Data.MAC.settings.language }}">
+
 <head>
     {{ partial "head.html" . }}
 
     {{ partial "head_custom.html" . }}
 </head>
+
 <body>
     {{ partial "header.html" . }}
 
@@ -19,26 +21,26 @@
                 <div class="tile is-parent is-9 is-vertical">
                     <div class="tile is-child ">
                         {{ if not (in .Site.Params.disableSections "description") }}
-                            <a class="fixed-top-anchor" id="section-about-me"></a>
-                            {{ partial "sections/description.html" . }}
+                        <a class="fixed-top-anchor" id="section-about-me"></a>
+                        {{ partial "sections/description.html" . }}
                         {{ end }}
                     </div>
                     <div class="tile is-child ">
                         {{ if not (in .Site.Params.disableSections "experience") }}
-                            <a class="fixed-top-anchor" id="section-experience"></a>
-                            {{ partial "sections/experience.html" . }}
+                        <a class="fixed-top-anchor" id="section-experience"></a>
+                        {{ partial "sections/experience.html" . }}
                         {{ end }}
                     </div>
                     <div class="tile is-child ">
                         {{ if not (in .Site.Params.disableSections "education") }}
-                            <a class="fixed-top-anchor" id="section-education"></a>
-                            {{ partial "sections/education.html" . }}
+                        <a class="fixed-top-anchor" id="section-education"></a>
+                        {{ partial "sections/education.html" . }}
                         {{ end }}
                     </div>
                     <div class="tile is-child ">
                         {{ if not (in .Site.Params.disableSections "links-of-interest") }}
-                            <a class="fixed-top-anchor" id="section-links-of-interest"></a>
-                            {{ partial "sections/links-of-interest.html" . }}
+                        <a class="fixed-top-anchor" id="section-links-of-interest"></a>
+                        {{ partial "sections/links-of-interest.html" . }}
                         {{ end }}
                     </div>
                 </div>
@@ -47,4 +49,5 @@
     </div>
     {{ partial "footer.html" . }}
 </body>
+
 </html>

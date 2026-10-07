@@ -5,7 +5,7 @@
 <div class="card">
     <div class="card-image">
         <figure class="image is-1by1" style='
-            background-image: url("{{ .Site.Data.MAC.aboutMe.profile.avatar.link }}");
+            background-image: url("{{ hugo.Data.MAC.aboutMe.profile.avatar.link }}");
             background-size: cover;
             background-position: center center;'>
         </figure>
@@ -14,11 +14,11 @@
         <div class="media">
             <div class="media-content">
                 <div class="title is-4">
-                    <span class="has-text-weight-light">{{ .Site.Data.MAC.aboutMe.profile.name }}</span>
-                    <span class="has-text-weight-semibold">{{ .Site.Data.MAC.aboutMe.profile.surnames }}</span>
+                    <span class="has-text-weight-light">{{ hugo.Data.MAC.aboutMe.profile.name }}</span>
+                    <span class="has-text-weight-semibold">{{ hugo.Data.MAC.aboutMe.profile.surnames }}</span>
                 </div>
                 <p class="subtitle is-5">
-                    {{ .Site.Data.MAC.aboutMe.profile.title }}
+                    {{ hugo.Data.MAC.aboutMe.profile.title }}
                 </p>
             </div>
         </div>
@@ -28,7 +28,7 @@
                     Technologies and tools
                 </div>
                 <div class="tags">
-                    {{ range .Site.Data.MAC.knowledge.hardSkills }}
+                    {{ range hugo.Data.MAC.knowledge.hardSkills }}
                     <div class="tag is-rounded is-primary">{{.skill.name}}</div>
                     {{ end }}
                 </div>
@@ -40,7 +40,7 @@
                     Languages
                 </div>
                 <div class="tags">
-                    {{ range .Site.Data.MAC.knowledge.languages }}
+                    {{ range hugo.Data.MAC.knowledge.languages }}
                     <div class="tag is-rounded is-primary">{{.name}}</div>
                     {{ end }}
                 </div>
