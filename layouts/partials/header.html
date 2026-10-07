@@ -63,5 +63,23 @@
                 burger.setAttribute('aria-expanded', 'false');
             });
         });
+
+        if (typeof Intl.DisplayNames === 'function') {
+            const languageNames = new Intl.DisplayNames(['en'], { type: 'language' });
+
+            document.querySelectorAll('[data-language-code]').forEach((element) => {
+                const languageCode = element.dataset.languageCode.toLowerCase();
+
+                try {
+                    const languageName = languageNames.of(languageCode);
+
+                    if (languageName && languageName.toLowerCase() !== languageCode) {
+                        element.textContent = languageName;
+                    }
+                } catch (error) {
+                    // Keep the original MAC language name when the code is unsupported.
+                }
+            });
+        }
     });
 </script>

@@ -33,7 +33,7 @@
         <h2 class="profile-label">Languages</h2>
         <ul>
             {{ range hugo.Data.MAC.knowledge.languages }}
-            <li><span>{{ .fullName }}</span><small>{{ .level }}</small></li>
+            <li><span class="language-name" data-language-code="{{ .name }}">{{ .fullName }}</span><small>{{ .level }}</small></li>
             {{ end }}
         </ul>
     </div>
